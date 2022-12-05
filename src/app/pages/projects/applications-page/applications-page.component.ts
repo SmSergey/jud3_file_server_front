@@ -49,6 +49,14 @@ export class ApplicationsPage implements OnInit {
         'Edit .env files',
         "Rebuild app"
       ]
+    },
+    {
+      name: "Postgres",
+      description: "DB server",
+      actions: [
+        'Edit .env files',
+        "Rebuild app"
+      ]
     }
   ];
 
