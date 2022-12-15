@@ -6,30 +6,29 @@
   </div>
 
   <div class="body">
-
     <div class="project-list" *ngFor="let proj of projects">
       <div class="project-item">
         <mat-accordion>
           <mat-expansion-panel hideToggle>
             <mat-expansion-panel-header>
               <mat-panel-title>
-                {{proj.name}}
+                {{ proj.displayName }}
               </mat-panel-title>
               <mat-panel-description>
-                {{proj.description}}
+                {{ proj.description }}
               </mat-panel-description>
             </mat-expansion-panel-header>
-            <mat-list role="list" *ngFor="let action of proj.actions">
+            <mat-list role="list" *ngFor="let actionObject of proj.actions; index as i">
               <mat-divider></mat-divider>
               <mat-list-item role="listitem">
-                <button mat-button color="primary">{{action}}</button>
+                <button mat-button color="primary" (click)="actionObject.action()">
+                  {{ actionObject.actionTitle }}
+                </button>
               </mat-list-item>
             </mat-list>
           </mat-expansion-panel>
         </mat-accordion>
       </div>
     </div>
-
-
   </div>
 </div>

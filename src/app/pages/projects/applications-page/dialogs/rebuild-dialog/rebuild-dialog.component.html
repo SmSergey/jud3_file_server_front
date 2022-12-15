@@ -1,0 +1,31 @@
+<div class="wrapper">
+  <div class="title">Select authorization method</div>
+
+  <mat-list role="list">
+    <mat-divider></mat-divider>
+
+    <mat-list-item role="listitem">
+      <button mat-button color="primary">Use login-pass authorization</button>
+    </mat-list-item>
+
+    <mat-divider></mat-divider>
+
+    <mat-accordion>
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <button mat-button color="primary">Enter application token</button>
+          </mat-panel-title>
+          <mat-panel-description> </mat-panel-description>
+        </mat-expansion-panel-header>
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <input #token_input matInput placeholder="xxx_xxx_xx" />
+          </mat-form-field>
+        </form>
+
+        <button class="send-request-button" (click)="sendRequest(token_input.value)">send</button>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-list>
+</div>

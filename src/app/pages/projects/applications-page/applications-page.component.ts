@@ -1,69 +1,76 @@
-import {Component, OnInit} from '@angular/core';
-import {ApplicationItem} from "./interfaces/ApplicationItem";
+import { Component } from '@angular/core';
 
+import { MatDialog } from '@angular/material/dialog';
+
+import { FileEditComponent } from './dialogs/file-edit/file-edit.component';
+import { ApplicationItem } from './interfaces/applicationItem';
 
 @Component({
   selector: 'app-projects-page',
   templateUrl: './applications-page.component.html',
-  styleUrls: ['./applications-page.component.css']
+  styleUrls: ['./applications-page.component.css'],
 })
-export class ApplicationsPage implements OnInit {
-  panelOpenState = false;
+export class ApplicationsPageComponent {
+  constructor(public dialog: MatDialog) {}
+
   public projects: ApplicationItem[] = [
     {
-      name: "Authentication-server",
-      description: "Main auth entry point",
+      displayName: 'Authentication-server',
+      description: 'Main auth entry point',
       actions: [
-        'Edit .env files',
-        "Rebuild app"
-      ]
+        {
+          actionTitle: 'Edit .env files',
+          action: () => {
+            const dialogRef = this.dialog.open(FileEditComponent);
+            dialogRef.componentInstance.projectName = 'jud3';
+            dialogRef.componentInstance.fileName = 'authorization_server';
+            dialogRef.componentInstance.getEnvFile();
+            dialogRef.componentInstance.onClose.subscribe(() => dialogRef.close());
+          },
+        },
+      ],
     },
     {
-      name: "File-server-backend",
-      description: "Storage for used in build files",
+      displayName: 'File-server-backend',
+      description: 'Storage for used in build files',
       actions: [
-        'Edit .env files',
-        "Rebuild app"
-      ]
+        {
+          actionTitle: 'Edit .env files',
+          action: () => {
+            const dialogRef = this.dialog.open(FileEditComponent);
+            dialogRef.componentInstance.projectName = 'jud3';
+            dialogRef.componentInstance.fileName = 'file-server-backend';
+            dialogRef.componentInstance.getEnvFile();
+            dialogRef.componentInstance.onClose.subscribe(() => dialogRef.close());
+          },
+        },
+      ],
     },
     {
-      name: "File-server-front",
-      description: "App for managing file-server storage and applications",
-      actions: [
-        'Edit .env files',
-        "Rebuild app"
-      ]
+      displayName: 'File-server-front',
+      description: 'App for managing file-server storage and applications',
+      actions: [],
     },
     {
-      name: "Aspect-backend",
-      description: "Api for aspect application",
+      displayName: 'Aspect-backend',
+      description: 'Api for aspect application',
       actions: [
-        'Edit .env files',
-        "Rebuild app"
-      ]
+        {
+          actionTitle: 'Edit .env files',
+          action: () => {
+            const dialogRef = this.dialog.open(FileEditComponent);
+            dialogRef.componentInstance.projectName = 'jud3';
+            dialogRef.componentInstance.fileName = 'aspect-backend';
+            dialogRef.componentInstance.getEnvFile();
+            dialogRef.componentInstance.onClose.subscribe(() => dialogRef.close());
+          },
+        },
+      ],
     },
     {
-      name: "Aspect-frontend",
-      description: "Aspect application front app",
-      actions: [
-        'Edit .env files',
-        "Rebuild app"
-      ]
+      displayName: 'Aspect-front',
+      description: 'Aspect application front app',
+      actions: [],
     },
-    {
-      name: "Postgres",
-      description: "DB server",
-      actions: [
-        'Edit .env files',
-        "Rebuild app"
-      ]
-    }
   ];
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
-
 }

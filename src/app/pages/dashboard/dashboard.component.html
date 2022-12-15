@@ -1,0 +1,29 @@
+<mat-tab-group animationDuration="0ms">
+  <mat-tab label="Applications">
+    <app-projects-page></app-projects-page>
+  </mat-tab>
+  <mat-tab label="Projects">
+    <mat-divider></mat-divider>
+    <div style="margin: 20px">There is only one project, selected by default</div>
+  </mat-tab>
+  <mat-tab label="Users">
+    <mat-divider></mat-divider>
+    <div style="margin: 20px">
+      Page to manage users. <br />
+      <br />
+      Users and application owners able to share permissions to other people by creating sub-users in their account<br />
+      Created users may have restricted permissions (only to edit files or create jobs)
+    </div>
+  </mat-tab>
+  <mat-tab label="jobs">
+    <mat-divider></mat-divider>
+    <div style="margin: 20px">Create jobs to rebuild project at particular time</div>
+  </mat-tab>
+  <mat-tab label="runtime settings">
+    <mat-divider></mat-divider>
+    <div style="margin: 20px">
+      You are will be able use this page to configure count of replicas and other runtime things, <br />
+      such as count of using CPU and used memory.
+    </div>
+  </mat-tab>
+</mat-tab-group>
