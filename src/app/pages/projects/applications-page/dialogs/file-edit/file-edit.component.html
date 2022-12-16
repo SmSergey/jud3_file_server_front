@@ -4,10 +4,13 @@
   </ng-container>
 
   <ng-container *ngIf="!(envContent === undefined)">
-    <textarea name="" id="" cols="30" rows="10" [(ngModel)]="envContent"></textarea>
+    <div class="text-area-container">
+      <span class="file-name-title">{{ fileName }}.properties</span>
+      <textarea cols="30" rows="10" [(ngModel)]="envContent"></textarea>
+    </div>
   </ng-container>
   <div class="buttons-box">
-    <button (click)="onClose.emit()">Cancel</button>
+    <button class="cancel-button" (click)="onClose.emit()">Cancel</button>
     <button (click)="updateEnvFile()">Save</button>
   </div>
 </div>
